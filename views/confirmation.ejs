@@ -1,0 +1,67 @@
+<!--
+NOM : confirmation.ejs
+AUTEUR : Alexis Noel
+DATE : 18 septembre 2023
+VERSION : 0.1
+DESCRIPTION : Cette page confirme les informations de la commande et indique le prix avec les informations obtenues grâce au serveur.
+-->
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Confirmation</title>
+        
+    </head>
+
+    <body>
+
+        <p>Pizza: <%= pizzaType %></p>
+        <p>Quantité: <%= quantity %></p>
+        <p>Taille: <%= size %></p>
+        <p>Ingrédients: <%= Ingredients %></p>
+        <p>Adresse: <%= adress %></p>
+        <p>Code postal: <%= postalCode %></p>
+        <p>Nom: <%= lastName %></p>
+        <p>Prénom: <%= firstName %></p>
+        <p>Téléphone: <%= phone %></p>
+        <p>Adesse mail: <%= mail %></p>
+        <p>Méthode de paiement: <%= cashing %></p>
+
+        <p>Le prix total est : <span id="prixTotal"></span>$</p>
+
+    </body>
+
+</html>
+
+<!--Sert à effectuer le calcul du prix de la pizza avec les taxes-->
+<script>
+
+    var prixTotal = 0.0;
+    var taxes = 0.15;
+    
+    const prices = {
+        'Hawaienne': 7.0,
+        'AllDressed': 8.1,
+        'Sicilienne': 6.3,
+        'Ingredients': 0.5,
+        'small': 0.8,
+        'medium': 1.0,
+        'large': 1.2
+    };
+
+    var size = "<%= size %>";
+    var ingredients = "<%= Ingredients %>";
+    var pizzaType = "<%= pizzaType %>";
+    var quantity = Number(<%= quantity %>);
+
+    prixTotal = (prices["<%=pizzaType%>"] + prices["<%=Ingredients%>"]) * prices["<%=size%>"] * quantity;
+
+    prixTotal = prixTotal+(prixTotal*taxes);
+
+    document.getElementById('prixTotal').textContent = prixTotal.toFixed(2);
+
+</script>

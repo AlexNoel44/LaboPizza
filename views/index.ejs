@@ -1,0 +1,128 @@
+<!--
+NOM : index.ejs
+AUTEUR : Alexis Noel
+DATE : 18 septembre 2023
+VERSION : 0.1
+DESCRIPTION : Sur cette page les clients doivent rentrer des informations concernat leur commande et leurs informations. Il y à ensuite en envoi de cette commande au serveur
+-->
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title>Accueil</title>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+
+  <body>
+    
+
+    <form method="post">
+        
+      <div>
+
+        <p>Quel type de pizza?</p>
+        <input type="radio" id="Hawaienne" name="pizzaType" value="Hawaienne">
+        <label for="Hawaienne">Hawaienne</label><br>
+
+        <input type="radio" id="AllDressed" name="pizzaType" value="AllDressed">
+        <label for="AllDressed">All dressed</label><br>
+
+        <input type="radio" id="Sicilienne" name="pizzaType" value="Sicilienne">
+        <label for="Sicilienne">Sicilienne</label><br>
+
+      </div>
+
+      <div>
+
+        <p>Quelle quantité?</p>
+          <input type="number" name="quantity" value="1" min="1" max="99"/>
+                  
+      </div>
+      
+      <div>
+
+        <p>Quelle taille?</p>
+        <select name="size" id="sizeComboBox">
+          <option value="small">Petite</option>
+          <option value="medium">Moyenne</option>
+          <option value="large">Large</option>
+          <option value="XtraLarge">Extra large</option>
+        </select>
+    
+      </div>
+
+      <div>
+
+        <p>Quels ingrédients?</p>
+        <input type="checkbox" id="pepperoni" name="Ingredients" value="Ingredients">
+        <label for="pepperoni">Pepperoni</label><br>
+
+        <input type="checkbox" id="mozzarella" name="Ingredients" value="Ingredients">
+        <label for="mozzarella">Mozzarella</label><br>
+
+        <input type="checkbox" id="oeuf" name="Ingredients" value="Ingredients">
+        <label for="oeuf">Oeuf</label><br>
+
+      </div>
+
+      <div>
+
+        <p><label for="adress">Quelle adresse?</label></p>
+          <textarea id="adress" name="adress" rows="4" cols="50"></textarea>
+
+      </div>
+
+      <div>
+
+        <p>Quel est le code postal?</p>
+          <input type="text" id="postalCode" name="postalCode" pattern="[A-Z0-9 ]{7}" required>
+                  
+      </div>
+
+      <div>
+
+        <p>Quel est votre nom?</p> 
+          <input type="text" name="lastName" value="nom?"/>
+                  
+      </div>
+
+      <div>
+
+        <p>Quel est votre prénom?</p>
+          <input type="text" name="firstName" value="prénom"/>
+                  
+      </div>
+
+      <div>
+
+        <p>Quel est votre numéro de téléphone?</p>
+          <input type="text" id="phone" name="phone" value="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+      </div>
+
+      <div>
+
+        <p>Quel est votre courriel?</p>
+          <input type="text" name="mail" value="nomprenom@gmail.com"/>
+                  
+      </div>
+
+      <div>
+
+        <p>Quel est votre mode de paiement?</p>
+          <input type="text" name="cashing" value="Cash"/>
+                  
+      </div><br>
+
+      <input type="submit" value="Commander">
+
+    </form>
+
+  </body>
+
+</html>
